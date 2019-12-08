@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author Allan Vivekanda
  * @author Breno
  * @author Henrique Fernandes
- * */  
+ * */
 public class Arquivo<G extends Entidade>{
 
     protected RandomAccessFile raf;
@@ -41,7 +41,7 @@ public class Arquivo<G extends Entidade>{
         int ultimoID;
         ultimoID = this.ultimoID();
         raf.seek(0);
-        objeto.setID(ultimoID+1); 
+        objeto.setID(ultimoID+1);
 
         indice.inserir(ultimoID, raf.length());
         //escrever o array de bytes do objeto no arquivo
@@ -56,7 +56,7 @@ public class Arquivo<G extends Entidade>{
         raf.seek(0);
         ultimoID = raf.readInt();
         return ultimoID;
-    }//end inserir 
+    }//end inserir
 
     //metodo para pesquisar o objeto, referente ao id lido, no arquivo, usando a pesquisa feita no indice primeiro
     public G pesquisar(int idqr) throws Exception{
@@ -74,7 +74,7 @@ public class Arquivo<G extends Entidade>{
                     objeto = construtor.newInstance();
                     raf.read(b);
                     objeto.fromByteArray(b);
-                }//end if  
+                }//end if
             }//end if
         }//end if
         return objeto;
